@@ -1,0 +1,10 @@
+Task 1:Login System
+
+
+Pre-requisite:
+--------------
+
+1.Express: web framework for nodejs, that helps you to easily Building Servers, and makinmg APIs,
+2.bcrypt: Hashing Library
+3.mysql: DBMS
+4.jwt: JSONWEBTOKEN: creating and verifying token!
