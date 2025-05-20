@@ -26,15 +26,17 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.post("/register",  async (req, res) => {
-   try {
+    try {
+       //recieve user input
        const { username, email, password } = req.body;
 
     //    console.log(req.body);
-
+//Validate User input
        if (!username || !password || !email) {
            return res.status(400).json({ message: 'All Field are required'})
        }
 
+        //checks If a user Exist
        db.query("SELECT * FROM users WHERE email = ?", [email], async (err, result) => {
            if (err) {
                return res.status(500).json({ message: "Database Error", error:err.message })
@@ -67,8 +69,8 @@ app.post("/register",  async (req, res) => {
        })
 
     
-   } catch (error) {
-    
+    } catch (error) {
+        res.status(500).json({ message: "Server Error", error: error.message})
    }
     
 })
